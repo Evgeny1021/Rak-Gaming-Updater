@@ -6,6 +6,7 @@
 	<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
 	<title>Rak Gaming Updater</title>
 	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="black-list-styles.css">
 </head>
 <body>
 	<div id="title-container">
@@ -76,6 +77,9 @@
 			<input type="checkbox" id="quit-on-close">
 			<label>Close the application instead of minimizing when clicking close</label>
 		</div>
+		<div class="checkbox-container">
+			<button class="tab-button" id="open-black-list">Black List</button>
+		</div>
 			<!-- <div class="checkbox-container">
 				<input type="checkbox" id="auto-update-checkbox" name="auto-update">
 				<label>???????</label>
@@ -96,6 +100,26 @@
 			<ul id="clients-list" class="scroll-frame-text"></ul>
 		</div>
 	</div>
-    <script src="renderer.js"></script>
+	<modal id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Black List</h2>
+        <form>
+            <label>Enter Folder Path</label>
+            <input type="text" id="black-list-folder" placeholder="\\_retail_\Interface\AddOns\ExRT_Reminder\Media\Private\Textures">
+        </form>
+        <div>
+            <h2>OR</h2>
+        </div>
+        <form>
+            <label>Enter Names</label>
+            <input type="text" id="black-list-name" placeholder="badito4.png, varsanus.png, zm.png">
+        </form>
+        <button id="add-Item-Btn">Add Item</button>
+        <ul class="item-List" id="item-List"></ul>
+    </div>
+</modal>
+<script src="renderer.js"></script>
+<script src="black-list.js"></script>
 </body>
 </html>

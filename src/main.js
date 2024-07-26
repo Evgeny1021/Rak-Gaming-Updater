@@ -12,6 +12,8 @@ const path = require('path');
 const validator = require('validator');
 const crc32 = require('crc').crc32;
 const { setExternalVBSLocation, promisified } = require('regedit');
+const winURL = process.env.ELECTRON_USE_DEV_URL === '1' ? 'http://localhost:3000' : `https://rak-gaming-annoucer-bot-93b48b086bae.herokuapp.com`;
+
 
 let fetch
 let store;
@@ -194,9 +196,9 @@ function createWindow() {
 
 	mainWindow?.webContents.on("will-navigate", (event) => {
     if (mainWindow?.webContents.getURL() !== winURL) {
-      event.preventDefault();
+        event.preventDefault();
     }
-  });
+});
 
 	mainWindow?.on('show', () => {
 		mainWindow?.setSkipTaskbar(false);
